@@ -42,21 +42,8 @@ class Produto {
       'photoUrl': photoUrl,
       'categoria': categoria,
       'restaurante': {
-        'id': restauranteId, // Modificado para aninhar
+        'id': restauranteId,
       },
     };
-  }
-
-  Produto changeFav({required bool favorite}) {
-    return Produto(
-      id: id,
-      nome: nome,
-      descricao: descricao,
-      categoria: categoria,
-      preco: preco,
-      quantidadeEstoque: quantidadeEstoque,
-      photoUrl: photoUrl,
-      restauranteId: restauranteId,
-    );
   }
 }

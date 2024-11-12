@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/produto")
+@RequestMapping(value = "/produto", produces = "application/json;charset=UTF-8")
 public class ProdutoController {
 
     @Autowired

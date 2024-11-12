@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart'; // Importa o pacote
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
   static Future<Map<String, dynamic>> loginCliente(

@@ -1,7 +1,7 @@
+import 'package:aguaegas/screens/fornecedor/home/home.dart';
 import 'package:aguaegas/screens/inicial/sign%20up/cadastro_empresario.dart';
 import 'package:flutter/material.dart';
 import 'package:aguaegas/api/services/auth_service.dart';
-import 'package:aguaegas/screens/fornecedor/home/home_empresario.dart';
 
 class LoginEmpresarioPage extends StatefulWidget {
   const LoginEmpresarioPage({super.key});
@@ -45,7 +45,7 @@ class _LoginEmpresarioPageState extends State<LoginEmpresarioPage>
     if (success) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomeEmpresarioPage()),
+        MaterialPageRoute(builder: (context) => MainPage()),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(

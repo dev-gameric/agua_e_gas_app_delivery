@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping(value = "/cliente", produces = "application/json;charset=UTF-8")
 public class ClienteController {
 
     @Autowired

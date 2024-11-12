@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/empresario")
+@RequestMapping(value = "/empresario", produces = "application/json;charset=UTF-8")
 public class EmpresarioController {
 
     @Autowired

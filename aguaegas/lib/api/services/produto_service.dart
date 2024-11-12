@@ -12,7 +12,8 @@ class ProdutoService {
       final response = await http.get(Uri.parse(baseUrl));
 
       if (response.statusCode == 200) {
-        List<dynamic> body = jsonDecode(response.body);
+        String decodedResponse = utf8.decode(response.bodyBytes);
+        List<dynamic> body = jsonDecode(decodedResponse);
         return body.map((item) => Produto.fromJson(item)).toList();
       } else {
         throw Exception('Erro ao buscar produtos');
@@ -24,16 +25,13 @@ class ProdutoService {
 
   // Método para cadastrar um produto
   Future<Produto> cadastrarProduto(Produto produto) async {
-    // Obter o restauranteId do SharedPreferences
     final prefs = await SharedPreferences.getInstance();
     final restauranteId = prefs.getInt('restauranteId');
 
-    // Verifique se o restauranteId não é nulo
     if (restauranteId == null) {
       throw Exception('Restaurante ID não encontrado nos SharedPreferences');
     }
 
-    // Criar um objeto Produto com o restauranteId
     final produtoComRestaurante = Produto(
       id: produto.id,
       nome: produto.nome,
@@ -42,7 +40,7 @@ class ProdutoService {
       preco: produto.preco,
       photoUrl: produto.photoUrl,
       quantidadeEstoque: produto.quantidadeEstoque,
-      restauranteId: restauranteId, // Associando o ID aqui
+      restauranteId: restauranteId,
     );
 
     final response = await http.post(
